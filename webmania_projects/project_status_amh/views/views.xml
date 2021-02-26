@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+
+Directlly in database
+<?xml version="1.0"?>
+<kanban class="oe_background_grey o_kanban_dashboard o_project_kanban o_emphasize_colors" >
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="nb_project"/>
+                    <field name="color"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="#{kanban_color(record.color.raw_value)} oe_kanban_global_click o_has_icon">
+                                <div class="o_project_kanban_main">
+                                    <div class="o_kanban_card_content">
+                                        <div class="o_kanban_primary_left">
+                                            <div class="o_primary">
+                                                <span><t t-esc="record.name.value"/></span>
+                                            </div>
+                                            
+                                            <div class="mt8 text-primary" title="Percentage of happy ratings over the past 30 days. Get rating details from the More menu." groups="project.group_project_rating">
+                                                <t t-if="record.percentage_satisfaction_project.value != -1">
+                                                        <a name="action_view_all_rating" type="object" context="{'search_default_rating_last_30_days':1}">
+                                                            <i class="fa fa-smile-o" role="img" aria-label="Percentage of satisfaction" title="Percentage of satisfaction"/> <t t-esc="record.percentage_satisfaction_project.value"/>%
+                                                        </a>
+                                                </t>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="o_kanban_card_manage_pane dropdown-menu" groups="project.group_project_manager" role="menu">
+                                       
+                                        <div role="menuitem" aria-haspopup="true" class="o_no_padding_kanban_colorpicker">
+                                            <ul class="oe_kanban_colorpicker" data-field="color" role="popup"/>
+                                        </div>
+                                    </div>
+                                    <a class="o_kanban_manage_toggle_button o_left" href="#" groups="project.group_project_manager">
+                                      <i class="fa fa-ellipsis-v" role="img" aria-label="Manage" title="Manage"/>
+                                    </a>
+                                    
+                                </div>
+
+                                <div class="o_project_kanban_boxes">
+                                    <a class="o_project_kanban_box" name="action_show_tasks" type="object">
+                                        <div>
+                                            <span class="o_value"><t t-esc="record.nb_project.value"/> Projects</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>

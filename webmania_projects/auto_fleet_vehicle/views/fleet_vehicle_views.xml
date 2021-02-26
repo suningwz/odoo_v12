@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="sale_order_action_kanban" model="ir.actions.act_window">
+        <field name="name">Devis/Bon commandes</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'default_our_vehicle_id': active_id, 'search_our_vehicle_id':active_id}</field>
+        <field name="domain">[('our_vehicle_id','=', active_id)]</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Cliquer afin de créer un devis/bon de commande associé à cette demande.
+            </p>
+        </field>
+    </record>
+        
+
+    <!--inherit and add fields to sale order-->
+    <record id="edit_fleet_vehicle_form_view_inherit" model="ir.ui.view">
+        <field name="name">fleet.vehicle.form.view.inherit</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="inherit_id" ref="fleet.fleet_vehicle_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@ class='oe_button_box']/button[2]" position="after">
+                    <button class="oe_stat_button" name="%(sale_order_action_kanban)d" type="action" icon="fa-th-large">
+                        <field string="Devis/Bon commandes" name="sale_orders_count" widget="statinfo"
+                               context="{'default_partner_id':driver_id}"/>
+                    </button>
+             </xpath>
+            <field name="car_value" position="replace">
+                <field name="car_value" invisible="1"/>
+            </field>
+            <field name="location" position="replace">
+                <field name="location" invisible="1"/>
+            </field>  
+            <field name="tag_ids" position="replace">
+                <field name="tag_ids" invisible="1"/>
+            </field>  
+            <field name="residual_value" position="replace">
+                <field name="residual_value" invisible="1"/>
+            </field>  
+            <field name="fuel_type" position="replace">
+                <field name="fuel_type" invisible="1"/>
+            </field> 
+            <field name="co2" position="replace">
+                <field name="co2" invisible="1"/>
+            </field>  
+            <field name="horsepower" position="replace">
+                <field name="horsepower" invisible="1"/>
+            </field>  
+            <field name="horsepower_tax" position="replace">
+                <field name="horsepower_tax" invisible="1"/>
+            </field>  
+            <field name="power" position="replace">
+                <field name="power" invisible="1"/>
+            </field>  
+            <field name="vin_sn" position="replace">
+                <field name="vin_sn" required="1"/>
+            </field>  
+            <field name="license_plate" position="replace">
+                <field name="license_plate" required="1"/>
+            </field>  
+            
+            
+        </field>
+    </record>
+
+    <record model="res.groups" id="group_vehicle_menu" >
+        <field name="name">Group Parc automobile</field>
+    </record>
+    <record id="fleet.fleet_vehicle_costs_menu" model="ir.ui.menu" >
+        <field name="groups_id" eval="[(6, 0, [ref('group_vehicle_menu')])]"/>
+    </record>
+    <record id="fleet.fleet_vehicle_log_contract_menu" model="ir.ui.menu" >
+        <field name="groups_id" eval="[(6, 0, [ref('group_vehicle_menu')])]"/>
+    </record>
+    <record id="fleet.fleet_vehicle_log_services_menu" model="ir.ui.menu" >
+        <field name="groups_id" eval="[(6, 0, [ref('group_vehicle_menu')])]"/>
+    </record>
+    <record id="fleet.fleet_vehicle_log_fuel_menu" model="ir.ui.menu" >
+        <field name="groups_id" eval="[(6, 0, [ref('group_vehicle_menu')])]"/>
+    </record>
+
+</odoo>

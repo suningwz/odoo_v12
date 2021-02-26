@@ -1,0 +1,137 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* stock_picking_drivers
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-07-07 18:45+0000\n"
+"PO-Revision-Date: 2020-07-07 18:45+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: stock_picking_drivers
+#: model_terms:ir.ui.view,arch_db:stock_picking_drivers.amh_report_picking_grouped
+msgid "<span><strong>Customer Address:</strong></span>"
+msgstr "<span><strong>Adresse du client :</strong></span>"
+
+#. module: stock_picking_drivers
+#: model_terms:ir.ui.view,arch_db:stock_picking_drivers.amh_report_picking_grouped
+msgid "<span><strong>Delivery Address:</strong></span>"
+msgstr "<span><strong>Adresse de livraison :</strong></span>"
+
+#. module: stock_picking_drivers
+#: model_terms:ir.ui.view,arch_db:stock_picking_drivers.amh_report_picking_grouped
+msgid "<span><strong>Vendor Address:</strong></span>"
+msgstr "<span><strong>Adresse du fournisseur :</strong></span>"
+
+#. module: stock_picking_drivers
+#: model_terms:ir.ui.view,arch_db:stock_picking_drivers.amh_report_picking_grouped
+msgid "<span><strong>Warehouse Address:</strong></span>"
+msgstr "<span><strong>Adresse de l'entrepôt:</strong></span>"
+
+#. module: stock_picking_drivers
+#: model_terms:ir.ui.view,arch_db:stock_picking_drivers.amh_report_picking_grouped
+msgid "<strong>\n"
+"                                            Product Barcode</strong>"
+msgstr "<strong>\n"
+"                                            Code-barre de l'article</strong>"
+
+#. module: stock_picking_drivers
+#: model_terms:ir.ui.view,arch_db:stock_picking_drivers.amh_report_picking_grouped
+msgid "<strong>DATE PLANIFIEE</strong>"
+msgstr "<strong>DATE PLANIFIÉE</strong>"
+
+#. module: stock_picking_drivers
+#: model_terms:ir.ui.view,arch_db:stock_picking_drivers.amh_report_picking_grouped
+msgid "<strong>DEVIS</strong>"
+msgstr "<strong>DEVIS</strong>"
+
+#. module: stock_picking_drivers
+#: model_terms:ir.ui.view,arch_db:stock_picking_drivers.amh_report_picking_grouped
+msgid "<strong>From</strong>"
+msgstr "<strong>De</strong>"
+
+#. module: stock_picking_drivers
+#: model_terms:ir.ui.view,arch_db:stock_picking_drivers.amh_report_picking_grouped
+msgid "<strong>Lot/Serial Number</strong>"
+msgstr "<strong>Lot/Numéros de série</strong>"
+
+#. module: stock_picking_drivers
+#: model_terms:ir.ui.view,arch_db:stock_picking_drivers.amh_report_picking_grouped
+msgid "<strong>ORIGINE</strong>"
+msgstr ""
+
+#. module: stock_picking_drivers
+#: model_terms:ir.ui.view,arch_db:stock_picking_drivers.amh_report_picking_grouped
+msgid "<strong>Product</strong>"
+msgstr "<strong>Article</strong>"
+
+#. module: stock_picking_drivers
+#: model_terms:ir.ui.view,arch_db:stock_picking_drivers.amh_report_picking_grouped
+msgid "<strong>Quantity</strong>"
+msgstr "<strong>Quantité</strong>"
+
+#. module: stock_picking_drivers
+#: model_terms:ir.ui.view,arch_db:stock_picking_drivers.amh_report_picking_grouped
+msgid "<strong>To</strong>"
+msgstr "<strong>À</strong>"
+
+#. module: stock_picking_drivers
+#: model_terms:ir.ui.view,arch_db:stock_picking_drivers.amh_report_picking_grouped
+msgid "Barcode"
+msgstr "Code Barre"
+
+#. module: stock_picking_drivers
+#: model:ir.actions.report,name:stock_picking_drivers.report_picking_grouped_categ
+msgid "Bon de preparation groupes"
+msgstr "Bon de préparation groupés"
+
+#. module: stock_picking_drivers
+#: model:ir.model.fields,field_description:stock_picking_drivers.field_sale_order__am_driver_id
+#: model:ir.model.fields,field_description:stock_picking_drivers.field_stock_picking__am_driver_id
+#: model_terms:ir.ui.view,arch_db:stock_picking_drivers.view_picking_internal_search_am_driver_inherit
+msgid "Chauffeur"
+msgstr ""
+
+#. module: stock_picking_drivers
+#: model:ir.model,name:stock_picking_drivers.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: stock_picking_drivers
+#: model:ir.model.fields,field_description:stock_picking_drivers.field_res_partner__am_is_driver
+#: model:ir.model.fields,field_description:stock_picking_drivers.field_res_users__am_is_driver
+msgid "Est un chauffeur"
+msgstr ""
+
+#. module: stock_picking_drivers
+#: model:ir.model.fields,field_description:stock_picking_drivers.field_stock_move__prd_categ_id
+msgid "Product Category"
+msgstr "Catégorie d'article"
+
+#. module: stock_picking_drivers
+#: model:ir.model,name:stock_picking_drivers.model_sale_order
+msgid "Sale Order"
+msgstr "Bon de commande"
+
+#. module: stock_picking_drivers
+#: model:ir.model.fields,help:stock_picking_drivers.field_stock_move__prd_categ_id
+msgid "Select category for the current product"
+msgstr "Sélectionnez la catégorie de l'article actuel"
+
+#. module: stock_picking_drivers
+#: model:ir.model,name:stock_picking_drivers.model_stock_move
+msgid "Stock Move"
+msgstr "Mouvement de stock"
+
+#. module: stock_picking_drivers
+#: model:ir.model,name:stock_picking_drivers.model_stock_picking
+msgid "Transfer"
+msgstr "Transfert"
+

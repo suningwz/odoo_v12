@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    <record model="ir.ui.view" id="view_partner_form_am_driver_inherited">
+      <field name="name">driver.partner</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_form"/>
+      <field name="arch" type="xml">
+            <xpath expr="//field[@name='type']" position="before">
+                <field name="am_is_driver"/>
+            </xpath>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="sale_view_order_form_am_driver_inherited">
+      <field name="name">driver.picking</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_form"/>
+      <field name="arch" type="xml">
+            <!-- <xpath expr="//field[@name='partner_shipping_id']" position="after">
+                <field name="am_driver_id"/>
+                <field name="matric_vdriver"/>
+            </xpath> -->
+            <field name="partner_shipping_id" position="replace">
+                <field name="partner_shipping_id" groups="sale.group_delivery_invoice_address" context="{'default_type':'delivery'}" options="{&quot;always_reload&quot;: True}"  domain="[('type','=','delivery'),('parent_id','=',partner_id)]" />
+                <field name="am_driver_id"/>
+                <field name="matric_vdriver"/>
+            </field>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_sales_order_filter_am_driver_inherited">
+      <field name="name">driver.picking.filter</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+      <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="after">
+                <field name="am_driver_id"/>
+                <field name="matric_vdriver"/>
+            </xpath>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_picking_form_am_driver_inherit">
+      <field name="name">driver.picking</field>
+      <field name="model">stock.picking</field>
+      <field name="inherit_id" ref="stock.view_picking_form"/>
+      <field name="arch" type="xml">
+            <xpath expr="//field[@name='origin']" position="after">
+                <field name="am_driver_id" attrs="{'required':[('picking_type_code', 'in', ['outgoing', 'internal'])], 'invisible':[('picking_type_code', 'not in', ['outgoing', 'internal'])]}"/>
+                <field name="matric_vdriver" attrs="{'required':[('picking_type_code', 'in', ['outgoing', 'internal'])], 'invisible':[('picking_type_code', 'not in', ['outgoing', 'internal'])]}"/>
+            </xpath>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="invoice_form_am_driver_inherit">
+      <field name="name">driver.picking</field>
+      <field name="model">account.invoice</field>
+      <field name="inherit_id" ref="account.invoice_form"/>
+      <field name="arch" type="xml">
+            <xpath expr="//field[@name='payment_term_id']" position="after">
+                <field name="am_driver_id" attrs="{'invisible':[('type','not in',['out_invoice','out_refund'])]}"/>
+                <field name="matric_vdriver" attrs="{'invisible':[('type','not in',['out_invoice','out_refund'])]}"/>
+            </xpath>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_picking_internal_search_am_driver_inherit">
+      <field name="name">driver.picking.filter</field>
+      <field name="model">stock.picking</field>
+      <field name="inherit_id" ref="stock.view_picking_internal_search"/>
+      <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_id']" position="after">
+                <field name="am_driver_id"/>
+                <field name="matric_vdriver"/>
+            </xpath>
+            <xpath expr="//filter[@name='status']" position="after">
+                <filter string="Chauffeur" name="grp_am_driver_id" domain="[]" context="{'group_by':'am_driver_id'}"/>
+
+            </xpath>
+      </field>
+    </record>
+
+    </data>
+</odoo>

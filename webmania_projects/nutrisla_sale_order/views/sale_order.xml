@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--inherit and add fields to sale order-->
+    <record id="nutrisla_sale_order_inherit" model="ir.ui.view">
+        <field name="name">nutrisla.sale.order.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']//form//field[@name='tax_id']" position="before">
+                  <field name="number_of_packs" attrs="{'invisible': [('product_id', '=', False)],'required': [('product_packaging', '!=', False)]}" />
+            </xpath>
+            <xpath expr="//field[@name='order_line']//form//field[@name='product_uom_qty']" position="attributes">
+                  <attribute name="attrs">{'readonly': ['|',('number_of_packs', '&gt;', 0),('product_packaging', '!=', False)]}</attribute>
+                  <attribute name="force_save">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="nutrisla_sale_order_inherit_2" model="ir.ui.view">
+        <field name="name">nutrisla.2.sale.order.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale_stock.view_order_form_inherit_sale_stock" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_packaging']" position="attributes">
+                <attribute name="attrs">{'invisible': [('product_id', '=', False)],'required': [('number_of_packs', '&gt;', 0)]}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    <record model="ir.ui.view" id="select_customer_warehouse.view_customer_warehouse_form">
+      <field name="name">stock.partner</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="stock.view_partner_stock_form"/>
+      <field name="arch" type="xml">
+          <xpath expr="//group[@name='container_row_stock']" position="replace">
+
+              <group name="container_row_stock"  priority="6">
+                  <group string="Warehouse" name="warehouse" groups="stock_contact_hook.show_stock_partner,base.group_no_one">
+                      <field name="property_stock_customer" domain="[('usage','=','customer')]" groups="base.group_no_one"/>
+                      <field name="property_stock_supplier" domain="[('usage','=','supplier')]" groups="base.group_no_one"/>
+                      <field name="warehouse_id" groups="stock_contact_hook.show_stock_partner"/>
+                  </group>
+              </group>
+                    
+          </xpath>
+      </field>
+    </record>
+
+
+    </data>
+</odoo>
