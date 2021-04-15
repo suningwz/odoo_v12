@@ -7,10 +7,10 @@
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
                 <field name="title" position="after">
-                   <field name="wm_rc" attrs="{'invisible':[('is_company','=',False)]}"/>
-                   <field name="wm_if" attrs="{'invisible':[('is_company','=',False)]}"/>
-                   <field name="wm_patente" attrs="{'invisible':[('is_company','=',False)]}"/>
-                   <field name="wm_ice" attrs="{'invisible':[('is_company','=',False)]}"/>
+                   <field name="wm_rc" attrs="{'invisible':[('is_company','=',False)], 'required':[('is_company','=','False')]}"/>
+                   <field name="wm_if" attrs="{'invisible':[('is_company','=',False)], 'required':[('is_company','=','False')]}"/>
+                   <field name="wm_patente" attrs="{'invisible':[('is_company','=',False)], 'required':[('is_company','=','False')]}"/>
+                   <field name="wm_ice" attrs="{'invisible':[('is_company','=',False)], 'required':[('is_company','=','False')]}"/>
                 </field>    
             </field>
         </record>

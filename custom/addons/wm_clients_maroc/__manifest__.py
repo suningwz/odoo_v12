@@ -30,12 +30,10 @@ dans la fiche client en conformité aux normes Maroc
 
     """,
     'depends': ["base"],
-    'data': [
-             'views/partner_view.xml',
-             ],
+    'data': ['views/partner_view.xml',],
     'images': ['static/description/banner.png'],
     'installable': True,
     'application' : True,
 }
 
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+
