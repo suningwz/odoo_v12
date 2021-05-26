@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+         <record id="ir_cron_fetch_orders" model="ir.cron">
+            <field name="name">Magento:Fetch Orders</field>
+            <field name="model_id" ref="odoo11_magento2.model_order_fetch_wizard"/>
+            <field name="state">code</field>
+            <field name="code">model.fetch_orders()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+        </record>
+        <record id="ir_cron_fetch_products" model="ir.cron">
+            <field name="name">Magento:Fetch Products</field>
+            <field name="model_id" ref="odoo11_magento2.model_products_fetch_wizard"/>
+            <field name="state">code</field>
+            <field name="code">model.fetch_products_to_odoo()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+        </record>
+    </data>
+</odoo>

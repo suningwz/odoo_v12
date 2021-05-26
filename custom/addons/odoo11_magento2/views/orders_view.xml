@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="sale_magento_id" model="ir.ui.view">
+            <field name="name">Sale Magento Form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <field name="user_id" position="after">
+                    <field name="magento_id" readonly="1" />
+                    <field name="magento_status" readonly="1" />
+                </field>
+            </field>
+        </record>
+        <record id="view_quotation_tree_with_onboarding" model="ir.ui.view">
+            <field name="name">sale.order.tree</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="magento_id"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="sale_order_view_tree" model="ir.ui.view">
+            <field name="name">sale.order.tree</field>
+            <field name="model">sale.order</field>
+            <field name="priority">2</field>
+            <field name="inherit_id" ref="sale.view_order_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="magento_id"/>
+                </xpath>
+                <xpath expr="//field[@name='invoice_status']" position="replace">
+                    <field name="magento_status"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="customer_magento_form" model="ir.ui.view">
+            <field name="name">customer.magento</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="category_id" position="after">
+                    <field name="magento_id" readonly="1" />
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>
