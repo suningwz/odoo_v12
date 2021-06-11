@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="ee_sale_margin_margin" model="ir.ui.view">
+			<field name="name">ee_sale_margin.margin</field>
+			<field name="model">sale.order</field>
+			<field name="inherit_id" ref="sale_margin.sale_margin_sale_order"/>
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='margin']" position="attributes">
+		            <attribute name="attrs">{'invisible': [('hide_margin', '=', True)]}</attribute>
+				</xpath>
+			</field>
+		</record>
+	</data>
+</odoo>
